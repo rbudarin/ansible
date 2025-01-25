@@ -15,7 +15,7 @@
 4. Tasks должны: скачать дистрибутив нужной версии, выполнить распаковку в выбранную директорию, установить vector.
 5. Запустите `ansible-lint site.yml` и исправьте ошибки, если они есть.
 
-![ansible02.01.png](./ansible02.01.png)
+![ansible02.01.png](https://github.com/rbudarin/ansible/blob/main/ansible-02-playbook/screen/ansible02.01.png)
 
 6. Попробуйте запустить playbook на этом окружении с флагом `--check`.
 7. Запустите playbook на `prod.yml` окружении с флагом `--diff`. Убедитесь, что изменения на системе произведены.
