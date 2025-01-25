@@ -1,0 +1,16 @@
+[sources.my_source]
+type = "demo_logs"
+format = "syslog"
+interval = 1
+
+[transforms.my_transform]
+type = "remap"
+inputs = ["my_source"]
+source = '''
+. = string!(.message)
+'''
+
+[sinks.my_sink]
+type = "console"
+inputs = ["my_transform"]
+encoding.codec = "json"
