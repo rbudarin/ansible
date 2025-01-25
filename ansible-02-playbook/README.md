@@ -26,6 +26,9 @@
 ![ansible02.03.png](https://github.com/rbudarin/ansible/blob/main/ansible-02-playbook/screen/ansible02.03.png)
 
 8. Повторно запустите playbook с флагом `--diff` и убедитесь, что playbook идемпотентен.
+
+![ansible02.04.png](https://github.com/rbudarin/ansible/blob/main/ansible-02-playbook/screen/ansible02.04.png)
+
 9. Подготовьте README.md-файл по своему playbook. В нём должно быть описано: что делает playbook, какие у него есть параметры и теги. Пример качественной документации ansible playbook по [ссылке](https://github.com/opensearch-project/ansible-playbook). Так же приложите скриншоты выполнения заданий №5-8
 10. Готовый playbook выложите в свой репозиторий, поставьте тег `08-ansible-02-playbook` на фиксирующий коммит, в ответ предоставьте ссылку на него.
 
