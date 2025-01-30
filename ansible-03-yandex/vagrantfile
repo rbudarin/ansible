@@ -1,0 +1,30 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+hosts = {
+  "clickhouse-01" => "192.168.56.10",
+  "vector-01" => "192.168.56.11",
+  "lighthouse" => "192.168.56.12"
+}
+
+Vagrant.configure("2") do |config|
+  config.vm.box = "centos8"
+  config.vm.synced_folder ".", "/vagrant", disabled: true
+  hosts.each do |name, ip|
+    config.vm.define name do |machine|
+      machine.vm.network :private_network, ip: ip
+      machine.vm.provider "virtualbox" do |v|
+        v.name = name
+				v.gui = false
+				v.memory = "512"
+				v.cpus = 1
+			config.vm.provision "shell", inline: <<-SHELL
+		    cd /etc/yum.repos.d/
+        sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-*
+        sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-*
+        sudo yum -y update
+      SHELL
+      end
+    end
+  end
+end

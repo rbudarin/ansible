@@ -1,0 +1,12 @@
+---
+# Desired version of vector
+vector_version: "0.44.0"
+vector_package: "x86_64-unknown-linux-gnu.tar.gz"
+vector_path: "{{ ansible_user_dir }}/vector"
+vector_config_path: "{{ vector_path }}/config"
+vector_logs_path: "{{ ansible_user_dir }}/logs"
+vector_user: logger
+vector_password: logger
+clickhouse_db: logs
+table: some_log
+table_engine: Log

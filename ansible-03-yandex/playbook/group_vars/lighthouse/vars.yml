@@ -1,0 +1,5 @@
+---
+# vars file for lighthouse-role
+lighthouse_vcs: "https://github.com/VKCOM/lighthouse.git"
+lighthouse_path: /usr/share/nginx/lighthouse
+lighthouse_port: 8080
