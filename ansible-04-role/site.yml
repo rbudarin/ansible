@@ -1,0 +1,45 @@
+# - name: Install Clickhouse
+#   hosts: clickhouse
+#   become: true
+#   roles:
+#     - { role: clickhouse, when: ansible_os_family == "RedHat" }
+#   tags: install_clickhouse
+
+---
+- name: Install Clickhouse
+  hosts: clickhouse
+  roles:
+    - clickhouse
+
+- name: Install Vector
+  hosts: vector
+  roles:
+    - vector
+    
+
+- name: Install lighthouse
+  hosts: lighthouse
+  handlers:
+    - name: Nginx reload
+      become: true
+      ansible.builtin.service:
+        name: nginx
+        state: restarted
+  pre_tasks:
+    - name: Lighthouse | Install git
+      become: true
+      ansible.builtin.yum:
+        name: git
+        state: present
+    - name: Lighhouse | Install epel-release
+      become: true
+      ansible.builtin.yum:
+        name: epel-release
+        state: present
+    - name: Lighhouse | Install nginx
+      become: true
+      ansible.builtin.yum:
+        name: nginx
+        state: present
+  roles:
+    - lighthouse

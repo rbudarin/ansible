@@ -1,0 +1,4 @@
+- name: clickhouse
+  src: https://github.com/AlexeySetevoi/ansible-clickhouse
+  scm: git
+  version: master
